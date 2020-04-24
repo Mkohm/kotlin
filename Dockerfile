@@ -26,4 +26,4 @@ COPY Dangerfile.df.kts /Dangerfile.df.kts
 RUN cd _danger-kotlin && make install
 
 # Run Danger Kotlin via Danger JS, allowing for custom args
-ENTRYPOINT ["npx", "--package", "danger", "danger-kotlin", "ci"]
+ENTRYPOINT ["npx", "--package", "danger", "danger-kotlin", "ci", "--dangerfile", "Dangerfile.df.kts"]
