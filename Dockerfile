@@ -22,8 +22,9 @@ ENV PATH $PATH:/usr/lib/kotlinc/bin
 COPY . _danger-kotlin
 
 COPY Dangerfile.df.kts /Dangerfile.df.kts
+COPY entrypoint.sh /entrypoint.sh
 
 RUN cd _danger-kotlin && make install
 
 # Run Danger Kotlin via Danger JS, allowing for custom args
-ENTRYPOINT ["npx", "--package", "danger", "danger-kotlin", "ci", "--dangerfile", "Dangerfile.df.kts"]
+ENTRYPOINT ["/entrypoint.sh"]
